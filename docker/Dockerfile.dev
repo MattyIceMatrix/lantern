@@ -1,0 +1,14 @@
+# LANTERN development image: Ubuntu 22.04 + ROS 2 Humble (matches JetPack 6, see ADR-0001)
+#
+#    [ ros:humble ] + python tooling + GIS tools  =  one image for sim and docs work
+#
+FROM ros:humble-ros-base-jammy
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        python3-pip python3-venv git make \
+        gdal-bin osmium-tool \
+        ros-humble-navigation2 ros-humble-slam-toolbox \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /workspaces/lantern
+CMD ["bash"]

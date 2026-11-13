@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use LANTERN in research, please cite it as below."
+title: "LANTERN: Local AI for Navigation, Triage and Emergency Reporting with No network"
+abstract: >-
+  An offline edge-AI kit for flood search and rescue that runs on an NVIDIA Jetson Orin Nano:
+  rover-based mapping and search, on-device person detection, offline situation reporting with a
+  small fine-tuned language model, a policy guardian with human approval, and store-and-forward sync.
+type: software
+authors:
+  - family-names: Moore
+    given-names: Matthew
+repository-code: "https://github.com/MattyIceMatrix/lantern"
+license: Apache-2.0
+version: 0.0.1
+date-released: "2026-11-13"
+keywords:
+  - edge AI
+  - search and rescue
+  - flood
+  - robotics
+  - offline

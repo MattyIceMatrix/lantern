@@ -1,0 +1,46 @@
+name: Bug report
+description: Something does not work as the requirements say it should
+labels: [bug, triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ```
+          /\_/\   Thanks for reporting! Security problems go to SECURITY.md, not here.
+         ( o.o )
+        ```
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      options: [scout, brain, agents, guardian, sync, mappack, doctrine, lantern_model, docs, ci]
+    validations:
+      required: true
+  - type: input
+    id: requirement
+    attributes:
+      label: Related requirement (REQ-xxx), if known
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      render: shell
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment (commit, hardware, OS, power mode)
+  - type: dropdown
+    id: safety
+    attributes:
+      label: Could this affect safety (rover motion, Guardian decisions, survivor data)?
+      options: ["No", "Maybe", "Yes"]
+    validations:
+      required: true

@@ -1,0 +1,11 @@
+# Every path is owned by the maintainer until reviewers join (see GOVERNANCE.md).
+# Safety-relevant paths are listed separately so extra reviewers can be added later.
+
+*                         @MattyIceMatrix
+
+/guardian/                @MattyIceMatrix
+/docs/safety-case.md      @MattyIceMatrix
+/docs/threat-model.md     @MattyIceMatrix
+/docs/dpia.md             @MattyIceMatrix
+/scout/                   @MattyIceMatrix
+/sync/                    @MattyIceMatrix

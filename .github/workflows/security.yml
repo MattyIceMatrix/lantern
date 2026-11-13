@@ -1,0 +1,41 @@
+# Security checks
+#
+#   [ secrets scan ] --> [ dependency audit ] --> [ SBOM artifact ]
+#
+name: security
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "17 3 * * 1"   # weekly, Monday 03:17 UTC
+
+permissions:
+  contents: read
+
+jobs:
+  secrets:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  dependencies:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - run: pip install -e . pip-audit cyclonedx-bom
+      - run: pip-audit
+      - run: cyclonedx-py environment -o sbom.cdx.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sbom
+          path: sbom.cdx.json

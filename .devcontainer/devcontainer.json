@@ -1,0 +1,17 @@
+{
+  "name": "LANTERN dev (ROS 2 Humble)",
+  "build": {
+    "dockerfile": "../docker/Dockerfile.dev"
+  },
+  "postCreateCommand": "pip install -e '.[dev]' && python scripts/lantern_status.py",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "charliermarsh.ruff",
+        "ms-iot.vscode-ros",
+        "redhat.vscode-yaml"
+      ]
+    }
+  }
+}

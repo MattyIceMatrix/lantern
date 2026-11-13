@@ -1,0 +1,30 @@
+name: Feature request
+description: Propose a new capability
+labels: [enhancement, triage]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Which user and which problem? (use the roles in docs/conops.md)
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+  - type: dropdown
+    id: operation
+    attributes:
+      label: Which operation does it belong to?
+      options: ["Op 0 Groundwork", "Op 1 Pathfinder", "Op 2 Night Vision", "Op 3 Radio Silence",
+                "Op 4 Gatekeeper", "Op 5 Boots on Ground", "Op 6 Relay", "Op 7 Debrief", "Post-v1"]
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: Works with no network connection, or explains why it does not need to
+        - label: Keeps a human in the loop for risky actions
+        - label: Uses no real personal data

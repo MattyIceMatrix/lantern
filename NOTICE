@@ -1,0 +1,20 @@
+LANTERN
+Copyright 2026 Matthew Moore
+
+This product includes software developed as part of the LANTERN project,
+licensed under the Apache License, Version 2.0 (see LICENSE).
+
+Third-party data used by the map pack is NOT covered by the Apache License
+and keeps its own licence. Map packs built with mappack/build.sh must carry
+these attributions:
+
+  - OpenStreetMap data (c) OpenStreetMap contributors, available under the
+    Open Database License (ODbL) 1.0.
+  - Terrain (DGM1) and flood hazard data: (c)GeoBasis-DE / LVermGeoRP,
+    Datenlizenz Deutschland - Namensnennung - Version 2.0, and the
+    terms of the providing Rhineland-Palatinate authority.
+  - Copernicus Emergency Management Service (EMSR517) products:
+    (c) European Union, Copernicus Emergency Management Service.
+
+Datasets used for training (for example SARD and FloodNet) keep their own
+licences; see docs/cards/ for each data card.
