@@ -1,0 +1,32 @@
+# LANTERN area configuration
+#
+#        +---------------------------+  north 50.57
+#        |  ~~~ Ahr valley ~~~>      |
+#        |  Schuld ... Ahrweiler     |
+#        +---------------------------+  south 50.35
+#      west 6.75                  east 7.30
+#
+# Starter values: a rough box around the Ahr valley. Check and tighten them in Op 0
+# (open the box on a map and make sure it covers Schuld to Bad Neuenahr-Ahrweiler).
+
+area:
+  name: ahr-valley
+  state: Rheinland-Pfalz
+  crs: EPSG:4326
+  bbox:            # [west, south, east, north]
+    - 6.75
+    - 50.35
+    - 7.30
+    - 50.57
+  work_crs: EPSG:25832   # ETRS89 / UTM 32N, the CRS of the RLP geodata
+
+sources:
+  osm_extract: rheinland-pfalz-latest.osm.pbf    # from Geofabrik
+  terrain: dgm1                                  # LVermGeo RLP, dl-de/by-2-0
+  flood_zones: [HQ10, HQ100, HQextrem]           # RLP Hochwassergefahrenkarten
+  ground_truth: EMSR517                          # Copernicus EMS, July 2021
+
+outputs:
+  dir: mappack/out/ahr-valley
+  tiles: ahr.pmtiles
+  routing: valhalla_tiles/

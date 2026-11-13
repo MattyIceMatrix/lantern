@@ -1,0 +1,20 @@
+[project]
+name = "lantern"
+version = "0.0.1"
+description = "Offline edge-AI kit for flood search and rescue (prototype)"
+readme = "README.md"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.10"
+dependencies = ["pydantic>=2.6", "pyyaml>=6"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.5"]
+
+[tool.setuptools]
+packages = ["lantern_model"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 110

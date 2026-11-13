@@ -1,0 +1,22 @@
+# German civil-protection terms for UI labels and translation
+#
+#     _____ _  ___      __
+#    |_   _| || \ \    / /    Technisches Hilfswerk
+#      | | | __ |\ \/\/ /     federal civil protection, mostly volunteers
+#      |_| |_||_| \_/\_/
+#
+# STARTER DATA: check against THW and BBK public glossaries.
+
+source: "THW and BBK public material (verify, record date)"
+verified_on: null
+
+terms:
+  Einsatzleiter: Incident Commander
+  Einsatzabschnitt: operations sector / branch
+  Lagemeldung: situation report (SITREP)
+  Bereitstellungsraum: staging area
+  Ortsverband: THW local chapter
+  Fachgruppe Wassergefahren: THW specialist group for water hazards
+  Hochwasser: flood
+  Pegel: river gauge
+  Not-Aus: emergency stop

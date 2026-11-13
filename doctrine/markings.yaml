@@ -1,0 +1,35 @@
+# Search marking systems, as fields LANTERN can log
+#
+#   FEMA US&R search assessment marking ("X" code), as commonly taught:
+#
+#                 date / time
+#                     \   /
+#        team id  --   \ /   -- hazards
+#                      / \
+#                     /   \
+#                  victims (live / dead)
+#
+#   INSARAG uses a related but different structure and victim marking.
+#
+# STARTER DATA: verify the exact quadrant meanings in the official FEMA US&R
+# and INSARAG Guidelines before Op 3 uses this file.
+
+sources:
+  fema: "FEMA National US&R Response System field operations guide (verify, record date)"
+  insarag: "INSARAG Guidelines, Volume II Manual C (verify, record date)"
+verified_on: null
+
+fema_x_code:
+  fields:
+    - name: team_id
+      position: left
+    - name: date_time
+      position: top
+    - name: hazards
+      position: right
+    - name: victims
+      position: bottom
+
+lantern_digital_marking:
+  # The rover never paints anything. It records a digital marking per structure.
+  fields: [structure_id, team_id, timestamp_utc, hazards, live_victims, deceased, search_complete]

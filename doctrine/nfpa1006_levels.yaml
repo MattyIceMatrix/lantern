@@ -1,0 +1,24 @@
+# NFPA 1006 rescue levels (plain-language summary for software)
+#
+#   AWARENESS  -->  OPERATIONS  -->  TECHNICIAN
+#   recognise       support +        lead complex
+#   + call help     work under       rescues
+#                   supervision
+#
+# STARTER DATA: verify wording against the current NFPA 1006 edition before use.
+
+source: "NFPA 1006, Standard for Technical Rescue Personnel Professional Qualifications (verify edition)"
+verified_on: null
+
+levels:
+  - id: awareness
+    summary: Recognise the hazard, secure the scene, call for qualified help. Does not enter the water.
+    lantern_rule: may operate the rover from a safe position; may not approve water entry
+  - id: operations
+    summary: Supports rescues and performs some rescue tasks under supervision.
+    lantern_rule: may approve low-risk rover moves near water
+  - id: technician
+    summary: Performs and leads advanced rescues.
+    lantern_rule: may approve high-risk rover moves in the hazard zone
+
+note: LANTERN never approves or plans human water entry. That is a human decision outside the system.

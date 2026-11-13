@@ -1,0 +1,44 @@
+# Guardian policies (starter set, Op 4)
+#
+#   rule order matters: first DENY wins, then ASK_HUMAN, else ALLOW
+#
+#   +---------+     +--------+     +-----------+     +-------+
+#   | request | --> | DENY?  | --> | ASK_HUMAN?| --> | ALLOW |
+#   +---------+     +--------+     +-----------+     +-------+
+
+version: 0
+
+rules:
+  - id: P-001
+    description: Never drive the rover into an HQ10 zone (most frequently flooded)
+    tool: rover_move
+    when: {target_in_flood_zone: HQ10}
+    decision: DENY
+
+  - id: P-002
+    description: Moves inside HQ100 need a team lead or higher
+    tool: rover_move
+    when: {target_in_flood_zone: HQ100}
+    decision: ASK_HUMAN
+    approver_roles: [team_lead, operations_section_chief, incident_commander]
+
+  - id: P-003
+    description: A sector can only be cleared by a person
+    tool: set_sector_state
+    when: {new_state: cleared}
+    decision: ASK_HUMAN
+    approver_roles: [team_lead]
+
+  - id: P-004
+    description: Images never leave the device
+    tool: sync_upload
+    when: {payload_contains: image}
+    decision: DENY
+
+  - id: P-005
+    description: SITREPs are released by Planning
+    tool: release_sitrep
+    decision: ASK_HUMAN
+    approver_roles: [planning_section_chief, incident_commander]
+
+default: DENY   # unknown tools are denied

@@ -1,0 +1,23 @@
+# CI: every push lights (or dims) the lantern
+#
+#   push --> lint --> tests --> [ green ] lantern lit
+#                          \--> [ red ]   lantern out, fix before merging
+
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - run: pip install -e ".[dev]"
+      - run: ruff check .
+      - run: pytest -q
+      - run: python scripts/lantern_status.py

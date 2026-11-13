@@ -1,0 +1,36 @@
+# ICS roles used by LANTERN
+#
+#                 [ Incident Commander ]
+#                          |
+#     +-----------+--------+---------+----------------+
+#     |           |                  |                |
+#  [ Ops ]   [ Planning ]      [ Logistics ]   [ Finance/Admin ]
+#     |
+#  [ Search team leads ] --> [ team members / rover operator ]
+#
+# STARTER DATA: verify against FEMA IS-100.c / IS-200.c material (Op 0, Op 3).
+
+source: "FEMA IS-100.c and IS-200.c course material (verify, record date)"
+verified_on: null
+
+roles:
+  - id: incident_commander
+    name: Incident Commander
+    de: Einsatzleiter
+    lantern_can_approve: [mission_start, mission_stop, sector_plan]
+  - id: operations_section_chief
+    name: Operations Section Chief
+    de: Leiter Einsatzabschnitt
+    lantern_can_approve: [sector_plan, rover_assignment]
+  - id: planning_section_chief
+    name: Planning Section Chief
+    de: Leiter Lage (S2)
+    lantern_can_approve: [sitrep_release]
+  - id: team_lead
+    name: Search Team Lead
+    de: Gruppenführer
+    lantern_can_approve: [rover_move_high_risk, sector_cleared]
+  - id: rover_operator
+    name: Rover Operator
+    de: Bediener
+    lantern_can_approve: [rover_move_low_risk]
