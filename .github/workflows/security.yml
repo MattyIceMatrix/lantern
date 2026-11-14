@@ -32,9 +32,15 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.10"
-      - run: pip install -e . pip-audit cyclonedx-bom
-      - run: pip-audit
-      - run: cyclonedx-py environment -o sbom.cdx.json
+      # Audit the project's OWN declared dependencies, resolved from
+      # pyproject.toml. The audit tool runs via pipx so that its transitive
+      # deps stay out of the audited set: installing pip-audit beside the
+      # project is what turned this job red on filelock and setuptools,
+      # neither of which LANTERN depends on.
+      - run: pipx run pip-audit --strict .
+      # SBOM of a project-only virtualenv, for the same reason.
+      - run: python -m venv .sbomenv && .sbomenv/bin/pip install -e .
+      - run: pipx run cyclonedx-bom environment .sbomenv -o sbom.cdx.json
       - uses: actions/upload-artifact@v4
         with:
           name: sbom
