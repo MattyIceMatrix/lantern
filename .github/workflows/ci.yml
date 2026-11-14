@@ -9,6 +9,12 @@ on:
   push:
   pull_request:
 
+# Least privilege: this workflow only reads the repository. Without an
+# explicit block a workflow inherits the repository default, which may be
+# read/write for every token it is handed.
+permissions:
+  contents: read
+
 jobs:
   test:
     runs-on: ubuntu-22.04
