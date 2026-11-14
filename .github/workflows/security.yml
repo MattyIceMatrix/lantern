@@ -41,7 +41,7 @@ jobs:
       # SBOM of a project-only virtualenv, for the same reason.
       - run: python -m venv .sbomenv && .sbomenv/bin/pip install -e .
       - run: pipx run cyclonedx-bom environment .sbomenv -o sbom.cdx.json
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: sbom
           path: sbom.cdx.json
